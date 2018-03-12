@@ -24,11 +24,12 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.firebase = {
+      apiKey: 'gofuckyourself',
+      authDomain: 'YOU-STUPID-GIT.firebaseapp.com',
+      databaseURL: 'https://SMART-INNIT.firebaseio.com',
+      storageBucket: 'CHEAKY-BUGGER.appspot.com',
+    }
   }
 
   if (environment === 'test') {
@@ -44,7 +45,12 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.firebase = {
+      apiKey: process.ENV.fireApiKey,
+      authDomain: process.ENV.fireAuthDomain,
+      databaseURL: process.ENV.fireDatabaseURL,
+      storageBucket: process.ENV.fireStorageBucket,
+    }
   }
 
   return ENV;
