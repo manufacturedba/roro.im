@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'roro-im',
+    modulePrefix: "roro-im",
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: "/",
+    locationType: "auto",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,34 +23,34 @@ module.exports = function(environment) {
     }
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     ENV.firebase = {
-      apiKey: 'gofuckyourself',
-      authDomain: 'YOU-STUPID-GIT.firebaseapp.com',
-      databaseURL: 'https://SMART-INNIT.firebaseio.com',
-      storageBucket: 'CHEAKY-BUGGER.appspot.com',
-    }
+      apiKey: "gofuckyourself",
+      authDomain: "YOU-STUPID-GIT.firebaseapp.com",
+      databaseURL: "https://SMART-INNIT.firebaseio.com",
+      storageBucket: "CHEAKY-BUGGER.appspot.com"
+    };
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
+  if (environment === "production") {
     ENV.firebase = {
       apiKey: process.ENV.fireApiKey,
       authDomain: process.ENV.fireAuthDomain,
       databaseURL: process.ENV.fireDatabaseURL,
-      storageBucket: process.ENV.fireStorageBucket,
-    }
+      storageBucket: process.ENV.fireStorageBucket
+    };
   }
 
   return ENV;
