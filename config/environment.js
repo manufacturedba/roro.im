@@ -46,10 +46,10 @@ module.exports = function(environment) {
 
   if (environment === "production") {
     ENV.firebase = {
-      apiKey: process.ENV.fireApiKey,
-      authDomain: process.ENV.fireAuthDomain,
-      databaseURL: process.ENV.fireDatabaseURL,
-      storageBucket: process.ENV.fireStorageBucket
+      apiKey: process.env.fireApiKey,
+      authDomain: process.env.fireAuthDomain,
+      databaseURL: process.env.fireDatabaseURL,
+      storageBucket: process.env.fireStorageBucket
     };
   }
 
