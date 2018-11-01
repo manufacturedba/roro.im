@@ -5,3 +5,10 @@ body {
   font-family: "Space Mono", monospace;
   background-color: #0e1111;
 }
+
+.circle {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: 2px solid #f8f8ff;
+}
