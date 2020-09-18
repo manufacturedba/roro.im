@@ -47,7 +47,7 @@
     "sass": "^1.26.11"
   },
   "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
+    "node": "12.x"
   },
   "dependencies": {
     "@babel/core": "^7.11.6"
