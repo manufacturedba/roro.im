@@ -19,7 +19,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "^3.5.0",
+    "ember-cli": "^3.21.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^2.0.0",
@@ -44,9 +44,12 @@
     "eslint-plugin-prettier": "^3.0.0",
     "loader.js": "^4.2.3",
     "prettier": "^1.14.3",
-    "sass": "^1.14.3"
+    "sass": "^1.26.11"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "dependencies": {
+    "@babel/core": "^7.11.6"
   }
 }

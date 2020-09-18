@@ -2,9 +2,17 @@
   min-height: 250px;
 }
 
+.home__me {
+  filter: saturate(0%);
+}
+
 .home__link {
   margin: 0 0 0 12px;
 }
 
 .home__footer {
+}
+
+.home__give-me-room {
+  margin-top: 32px;
 }
