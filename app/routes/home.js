@@ -1,6 +1,5 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-import { reads } from "@ember/object/computed";
 import config from "roro-im/config/environment";
 
 export default Route.extend({
@@ -16,7 +15,6 @@ export default Route.extend({
 
       // Force upgrade through redirect
       this.get("fastboot.response.headers").set("location", `https://${host}`);
-      this.set("fastboot.response.statusCode", 302);
     }
   }
 });
