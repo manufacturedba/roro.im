@@ -15,6 +15,7 @@ export default Route.extend({
 
       // Force upgrade through redirect
       this.get("fastboot.response.headers").set("location", `https://${host}`);
+      this.set("fastboot.response.statusCode", 301);
     }
   }
 });
