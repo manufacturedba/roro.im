@@ -5,7 +5,7 @@ import config from "roro-im/config/environment";
 export default Route.extend({
   fastboot: service(),
 
-  beforeModel() {
+  model() {
     if (
       this.get("fastboot.isFastBoot") &&
       this.get("fastboot.request.protocol") === "http:" &&
