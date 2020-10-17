@@ -2,33 +2,28 @@ module.exports = {
   root: true,
   parserOptions: {
     ecmaVersion: 2017,
-    sourceType: 'module'
+    sourceType: "module"
   },
-  plugins: [
-    'ember',
-    'prettier',
-  ],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
-  ],
+  plugins: ["ember", "prettier"],
+  extends: ["eslint:recommended", "plugin:ember/recommended"],
   env: {
     browser: true
   },
   rules: {
-    'prettier/prettier': 'error'
+    "prettier/prettier": "error"
   },
   overrides: [
     // node files
     {
       files: [
-        'testem.js',
-        'ember-cli-build.js',
-        'config/**/*.js',
-        'lib/*/index.js'
+        "testem.js",
+        "ember-cli-build.js",
+        "config/**/*.js",
+        "lib/*/index.js",
+        "express.js"
       ],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: "script",
         ecmaVersion: 2015
       },
       env: {
@@ -36,5 +31,8 @@ module.exports = {
         node: true
       }
     }
-  ]
+  ],
+  globals: {
+    Hls: "readonly"
+  }
 };
