@@ -16,11 +16,12 @@ export default Component.extend({
         console.debug("Camera is ready for playback");
       });
 
-      hls.on(Hls.Events.ERROR, () => {
-        if (this.get("error") !== false) {
+      hls.on(Hls.Events.ERROR, (type, error) => {
+        if (this.get("error") !== false && error.fatal) {
           this.set("error", true);
+          console.error("Camera is offline");
         }
-        console.error("Camera is offline");
+        console.error("Camera hiccup");
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = videoSrc;
