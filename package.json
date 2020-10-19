@@ -11,9 +11,9 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build",
+    "build": "ember build --environment production",
     "lint:js": "eslint ./*.js app config lib server tests",
-    "start": "ember build --environment production && node express.js",
+    "start": "node express.js",
     "test": "ember test"
   },
   "devDependencies": {
