@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route("home", { path: "/" });
   this.route("camera");
+  this.route('temperature');
 });
 
 export default Router;
