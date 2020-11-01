@@ -1,0 +1,9 @@
+{{#if temperature}}
+  <h1 class="roro-temperature__degrees flex-justify-content">{{temperature}}&deg;F</h1>
+{{else}}
+  <h2 class="roro-temperature__degrees roro-temperature__degrees--empty flex-justify-content">Give me a sec to load</h2>
+{{/if}}
+
+{{#if timestamp}}
+  <span class="roro-temperature__timestamp flex-justify-content">Last updated {{timestamp}}</span>
+{{/if}}
