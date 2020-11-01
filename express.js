@@ -43,14 +43,18 @@ function getID() {
   return `${year}-${month}-${dt}`;
 }
 
-const ref = database.ref(`date/${getID()}`);
-
 let lastMessage = null;
-ref.on("child_added", function(data) {
-  console.log("Emitting new packet");
-  lastMessage = data.val();
-  io.emit("temperature", data.val());
-});
+
+function initiateRefToday() {
+  const key = `date/${getID()}`;
+  const ref = database.ref(key);
+  console.log(`Key is ${key}`);
+  ref.on("child_added", function(data) {
+    console.log("Emitting new packet");
+    lastMessage = data.val();
+    io.emit("temperature", data.val());
+  });
+}
 
 io.on("connection", socket => {
   console.log("New connection");
@@ -71,5 +75,6 @@ app.use(
 );
 
 server.listen(port, () => {
+  initiateRefToday();
   console.log(`Example app listening at http://localhost:${port}`);
 });
