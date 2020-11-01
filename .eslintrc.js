@@ -33,6 +33,7 @@ module.exports = {
     }
   ],
   globals: {
-    Hls: "readonly"
+    Hls: "readonly",
+    io: "readonly"
   }
 };
