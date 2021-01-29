@@ -74,6 +74,16 @@ app.use(
   })
 );
 
+app.use(
+  "/pasta-proxy",
+  proxy("69.181.106.112:4321", {
+    proxyReqPathResolver: function(req) {
+      const parts = req.url.split("?");
+      return parts[0];
+    }
+  })
+);
+
 server.listen(port, () => {
   initiateRefToday();
   console.log(`Example app listening at http://localhost:${port}`);
