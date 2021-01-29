@@ -22,6 +22,7 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 const port = process.env.PORT || 9999;
+const streamPath = process.env.PASTA_PATH || '';
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -75,7 +76,7 @@ app.use(
 );
 
 app.use(
-  "/pasta-proxy",
+  streamPath,
   proxy("69.181.106.112:4321", {
     proxyReqPathResolver: function(req) {
       const parts = req.url.split("?");

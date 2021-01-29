@@ -4,8 +4,15 @@ const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {});
+  app.import('node_modules/video.js/dist/video-js.min.css');
 
-  app.import("node_modules/hls.js/dist/hls.min.js");
+  app.import("node_modules/video.js/dist/video.min.js", {
+    using: [
+      {
+        transformation: 'fastbootShim'
+      }
+    ]
+  });
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

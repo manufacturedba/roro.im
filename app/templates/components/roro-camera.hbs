@@ -1,8 +1,11 @@
 <div>
   {{#unless error}}
-    <video class="roro-camera__video" controls autoplay>
-      Your browser does not support the video tag.
-    </video>
+    <div class="roro-camera__video">
+      <video id="my-video" aspectRatio="16:9" class="video-js vjs-fill" controls preload="auto">
+        <source src={{src}} type="application/x-mpegURL" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   {{else}}
     <h4 class="roro-camera__error">Camera is currently offline!</h4>
   {{/unless}}

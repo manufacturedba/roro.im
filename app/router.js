@@ -10,6 +10,7 @@ Router.map(function() {
   this.route("home", { path: "/" });
   this.route("camera");
   this.route("temperature");
+  this.route("pasta");
 });
 
 export default Router;
