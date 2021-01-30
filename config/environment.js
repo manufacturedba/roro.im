@@ -56,7 +56,7 @@ module.exports = function(environment) {
       databaseURL: process.env.fireDatabaseURL,
       storageBucket: process.env.fireStorageBucket
     };
-    ENV.showIsLive = process.env.SHOW_IS_LIVE || false;
+    ENV.showIsLive = process.env.SHOW_IS_LIVE === "true";
   }
 
   return ENV;
