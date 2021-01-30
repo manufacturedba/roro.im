@@ -1,8 +1,8 @@
 {{#if model.live}}
     {{roro-camera src="./pasta-proxy/what/index.m3u8" class="home__give-me-room flex-justify-content"}}
 {{else}}
-    <section class="home__give-me-room flex-justify-content flex-wrap">
-        <img height="500" src="{{rootURL}}{{model.chosen}}" />
+    <section class="home__give-me-room home__offline flex-justify-content flex-wrap">
+        <img class="home__offline-image" src="{{rootURL}}{{model.chosen}}" />
     </section>
     <section class="home__give-me-room flex-justify-content flex-wrap">
         <h2 class="max-width-large flex-justify-content">Pasta Weekend is not live right now</h2>
