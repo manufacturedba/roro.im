@@ -5,6 +5,8 @@ import config from "roro-im/config/environment";
 export default Route.extend({
   fastboot: service(),
 
+  titleToken: "Sky Cam",
+
   beforeModel() {
     if (
       this.get("fastboot.isFastBoot") &&

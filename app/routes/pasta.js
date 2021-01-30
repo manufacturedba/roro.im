@@ -1,8 +1,31 @@
 import Route from "@ember/routing/route";
 
-import { getOwner } from "@ember/application";
+import config from "roro-im/config/environment";
 
 export default Route.extend({
+  titleToken: "Pasta Weekend",
+
+  beforeModel() {
+    if (
+      this.get("fastboot.isFastBoot") &&
+      config.environment === "production"
+    ) {
+      const headers = this.get("fastboot.request.headers");
+      const protocol = headers.get("X-Forwarded-Proto");
+
+      if (protocol === "http") {
+        const host = this.get("fastboot.request.host");
+
+        // Force upgrade through redirect
+        this.get("fastboot.response.headers").set(
+          "location",
+          `https://${host}`
+        );
+        this.set("fastboot.response.statusCode", 301);
+      }
+    }
+  },
+
   model() {
     const all = [
       "IMG_20181228_191514-served.jpg",
@@ -14,7 +37,7 @@ export default Route.extend({
     ];
 
     return {
-      live: getOwner(this).resolveRegistration("config:environment").showIsLive,
+      live: config.showIsLive,
       all,
       chosen: all[Math.floor(Math.random() * all.length)]
     };

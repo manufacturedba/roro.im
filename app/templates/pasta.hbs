@@ -1,5 +1,6 @@
 {{#if model.live}}
-    {{roro-camera src="./pasta-proxy/what/index.m3u8" class="home__give-me-room flex-justify-content"}}
+    <h3 class="color-text-green flex-justify-content flex-wrap">LIVE</h3>
+    {{roro-camera poster=(concat rootURL '/pasta-poster.png') src="./pasta-proxy/what/index.m3u8" class="home__give-me-room flex-justify-content"}}
 {{else}}
     <section class="home__give-me-room home__offline flex-justify-content flex-wrap">
         <img class="home__offline-image" src="{{rootURL}}{{model.chosen}}" />
@@ -8,6 +9,6 @@
         <h2 class="max-width-large flex-justify-content">Pasta Weekend is not live right now</h2>
     </section>
     <section class="home__give-me-room flex-justify-content flex-wrap">
-        <b class="max-width-large flex-justify-content">Airs every Saturday at 11AM PST (except when it doesn't).</b>
+        <b class="max-width-large flex-justify-content">Airs every Saturday at 2PM PST (except when it doesn't).</b>
     </section>
 {{/if}}

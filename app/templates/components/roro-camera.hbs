@@ -1,7 +1,7 @@
 <div>
   {{#unless error}}
     <div class="roro-camera__video">
-      <video id="my-video" aspectRatio="16:9" class="video-js vjs-fill" controls preload="auto">
+      <video id="my-video" aspectRatio="16:9" poster="{{poster}}" class="video-js vjs-fill" controls preload="auto">
         <source src={{src}} type="application/x-mpegURL" />
         Your browser does not support the video tag.
       </video>
