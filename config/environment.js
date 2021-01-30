@@ -30,10 +30,11 @@ module.exports = function(environment) {
   if (environment === "development") {
     ENV.firebase = {
       apiKey: "gofuckyourself",
-      authDomain: "YOU-STUPID-GIT.firebaseapp.com",
-      databaseURL: "https://SMART-INNIT.firebaseio.com",
-      storageBucket: "CHEAKY-BUGGER.appspot.com"
+      authDomain: "i-love-poop.firebaseapp.com",
+      databaseURL: "https://smart-init?.firebaseio.com",
+      storageBucket: "cheaky.appspot.com"
     };
+    ENV.showIsLive = true;
   }
 
   if (environment === "test") {
@@ -55,6 +56,7 @@ module.exports = function(environment) {
       databaseURL: process.env.fireDatabaseURL,
       storageBucket: process.env.fireStorageBucket
     };
+    ENV.showIsLive = process.env.SHOW_IS_LIVE || false;
   }
 
   return ENV;

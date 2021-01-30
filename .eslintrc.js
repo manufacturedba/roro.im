@@ -33,7 +33,7 @@ module.exports = {
     }
   ],
   globals: {
-    Hls: "readonly",
+    videojs: "readonly",
     io: "readonly"
   }
 };
