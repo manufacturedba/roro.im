@@ -21,7 +21,7 @@ export default Route.extend({
         // Force upgrade through redirect
         this.get("fastboot.response.headers").set(
           "location",
-          `https://${host}`
+          `https://${host}/pasta`
         );
         this.set("fastboot.response.statusCode", 301);
       }
