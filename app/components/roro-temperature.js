@@ -33,7 +33,7 @@ export default Component.extend({
     const socket = io();
 
     socket.on("temperature", packet => {
-      console.log("Receiving a new packet");
+      console.debug("Receiving a new packet");
       this.set("data", packet);
     });
   }

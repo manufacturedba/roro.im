@@ -1,8 +1,10 @@
 import Route from "@ember/routing/route";
-
+import { inject as service } from "@ember/service";
 import config from "roro-im/config/environment";
 
 export default Route.extend({
+  fastboot: service(),
+
   titleToken: "Pasta Weekend",
 
   beforeModel() {
