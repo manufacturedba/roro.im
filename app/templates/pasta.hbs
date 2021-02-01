@@ -1,12 +1,22 @@
 {{#if model.live}}
     <h3 class="color-text-green flex-justify-content flex-wrap">LIVE</h3>
+    <section class="home__give-me-room flex-justify-content flex-wrap">
+        <b class="max-width-large flex-justify-content">
+            Text the show at&nbsp;<a class="link" href="sms://+15302067664">530-206-7664</a>
+        </b>
+    </section>
     {{roro-camera poster=(concat rootURL '/pasta-poster.png') src="./pasta-proxy/what/index.m3u8" class="home__give-me-room flex-justify-content"}}
 {{else}}
     <section class="home__give-me-room home__offline flex-justify-content flex-wrap">
         <img class="home__offline-image" src="{{rootURL}}{{model.chosen}}" />
     </section>
     <section class="home__give-me-room flex-justify-content flex-wrap">
-        <h2 class="max-width-large flex-justify-content">Pasta Weekend is not live right now</h2>
+        <b class="max-width-large flex-justify-content">Pasta Weekend is not live right now</b>
+    </section>
+    <section class="home__give-me-room flex-justify-content flex-wrap">
+        <b class="max-width-large flex-justify-content">
+            Text the show at&nbsp;<a class="link" href="sms://+15302067664">530-206-7664</a>
+        </b>
     </section>
     <section class="home__give-me-room flex-justify-content flex-wrap">
         <b class="max-width-large flex-justify-content">Airs every Saturday at 2PM PST (except when it doesn't).</b>
