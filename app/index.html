@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#002b36">
-    <meta name="description" content="Roberto Rodriguez's website">
-    <meta name="author" content="Roberto Rodriguez">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#002b36">
+  <meta name="description" content="Roberto Rodriguez's website">
+  <meta name="author" content="Roberto Rodriguez">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/png" href="{{rootURL}}favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/roro-im.css">
-    <script src="/socket.io/socket.io.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555136-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  {{content-for "head"}}
 
-      gtag('config', 'UA-128555136-1');
-    </script>
+  <link rel="icon" type="image/png" href="{{rootURL}}favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/roro-im.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    window.socket = io();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555136-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
+    gtag('config', 'UA-128555136-1');
+  </script>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/roro-im.js"></script>
-    {{content-for "body-footer"}}
-  </body>
+  {{content-for "head-footer"}}
+</head>
+
+<body>
+  {{content-for "body"}}
+
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/roro-im.js"></script>
+  {{content-for "body-footer"}}
+</body>
+
 </html>

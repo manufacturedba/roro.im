@@ -30,9 +30,8 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    const socket = io();
 
-    socket.on("temperature", packet => {
+    window.socket.on("temperature", packet => {
       console.debug("Receiving a new packet");
       this.set("data", packet);
     });

@@ -6,6 +6,5 @@ export default Component.extend({
     const player = videojs("my-video");
     player.fill(true);
     player.responsive(true);
-    player.play();
   }
 });
