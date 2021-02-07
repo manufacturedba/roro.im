@@ -1,9 +1,9 @@
 <section class="home__give-me-room home__offline flex-justify-content flex-wrap">
     <img class="home__offline-image" src="{{rootURL}}{{model.chosen}}" />
 </section>
-{{#if timeTill}}
+{{#if showTime}}
     <section class="home__give-me-room flex-justify-content flex-wrap">
-        <b class="max-width-large flex-justify-content">Pasta Weekend is live in {{timeTill}} seconds</b>
+        <b class="max-width-large flex-justify-content">Pasta Weekend is live in {{showTime}} seconds</b>
     </section>
 {{else}}
     <section class="home__give-me-room flex-justify-content flex-wrap">

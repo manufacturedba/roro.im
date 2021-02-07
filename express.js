@@ -22,7 +22,7 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 const port = process.env.PORT || 9999;
-const streamPath = process.env.PASTA_PATH || '';
+const streamPath = process.env.PASTA_PATH || "";
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -44,7 +44,8 @@ function getID() {
   return `${year}-${month}-${dt}`;
 }
 
-let lastMessage = null;
+let lastTemperatureMessage = null;
+let lastPastaMessage = null;
 
 function initiateRefToday() {
   const key = `date/${getID()}`;
@@ -52,14 +53,24 @@ function initiateRefToday() {
   console.log(`Key is ${key}`);
   ref.on("child_added", function(data) {
     console.log("Emitting new packet");
-    lastMessage = data.val();
+    lastTemperatureMessage = data.val();
     io.emit("temperature", data.val());
+  });
+}
+
+function initiateRefPasta() {
+  const ref = database.ref("pasta");
+  ref.on("child_added", function(data) {
+    console.log("Emitting packet for show");
+    const message = data.val();
+    io.emit("pasta", message);
   });
 }
 
 io.on("connection", socket => {
   console.log("New connection");
-  socket.emit("temperature", lastMessage);
+  socket.emit("temperature", lastTemperatureMessage);
+  socket.emit("pasta", lastPastaMessage);
 });
 
 app.get("/*", fastbootMiddleware("./dist"));
@@ -87,5 +98,6 @@ app.use(
 
 server.listen(port, () => {
   initiateRefToday();
+  initiateRefPasta();
   console.log(`Example app listening at http://localhost:${port}`);
 });
