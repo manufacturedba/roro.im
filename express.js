@@ -62,7 +62,7 @@ function initiateRefPasta() {
   const ref = database.ref("pasta");
   ref.on("child_added", function(data) {
     console.log("Emitting packet for show");
-    const message = data.val();
+    lastPastaMessage = data.val();
     io.emit("pasta", message);
   });
 }
