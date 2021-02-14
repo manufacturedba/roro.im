@@ -21,7 +21,14 @@ export default Component.extend({
   }),
 
   showIsLive: computed("clock.time", "isLive", "timeTill", function() {
-    return true;
+    const isLive = this.get("isLive");
+    const timeTill = this.get("timeTill");
+
+    if (isLive && timeTill) {
+      return this.get("clock.time") >= timeTill;
+    } else {
+      return false;
+    }
   }),
 
   didInsertElement() {
