@@ -31,8 +31,18 @@ export default Component.extend({
     }
   }),
 
+  poll() {
+    run.later(() => {
+      // In some cases, the connection establishes before the listener, so we need extra security
+      // to start the showrun
+      window.socket.emit("pasta", "ping");
+      this.poll();
+    }, 5000);
+  },
+
   didInsertElement() {
     this._super(...arguments);
+    this.poll();
 
     window.socket.on("pasta", packet => {
       run(() => {

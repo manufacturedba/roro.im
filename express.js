@@ -71,6 +71,11 @@ io.on("connection", socket => {
   console.log("New connection");
   socket.emit("temperature", lastTemperatureMessage);
   socket.emit("pasta", lastPastaMessage);
+
+  socket.on("pasta", () => {
+    console.log("PONG");
+    socket.emit("pasta", lastPastaMessage);
+  });
 });
 
 app.get("/*", fastbootMiddleware("./dist"));
