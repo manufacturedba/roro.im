@@ -31,6 +31,10 @@ export default Component.extend({
     }
   }),
 
+  notThisWeekend: computed("clock.time", "cancelledUntil", function() {
+    return this.get("cancelledUntil") >= this.get("clock.time");
+  }),
+
   poll() {
     run.later(() => {
       // In some cases, the connection establishes before the listener, so we need extra security
@@ -47,11 +51,12 @@ export default Component.extend({
     window.socket.on("pasta", packet => {
       run(() => {
         if (packet) {
-          const { timeTill, isLive } = packet;
+          const { timeTill, isLive, cancelledUntil } = packet;
           console.debug("Receiving a show update");
           this.setProperties({
             timeTill,
-            isLive
+            isLive,
+            cancelledUntil
           });
         }
       });

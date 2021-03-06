@@ -1,5 +1,14 @@
 {{#if showIsLive}}
     {{pasta-show-live}}
+{{else if notThisWeekend}}
+<section class="home__give-me-room home__offline flex-justify-content flex-wrap">
+    <img class="home__offline-image" src="{{rootURL}}sleeping.jpg" />
+</section>
+<section class="home__give-me-room flex-justify-content flex-wrap">
+    <b class="max-width-large flex-justify-content">
+        💀 no show this weekend 💀
+    </b>
+</section>
 {{else}}
     {{pasta-show-placeholder model=model showTime=showTime}}
 {{/if}}
